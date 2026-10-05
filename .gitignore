@@ -1,0 +1,12 @@
+build/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# editors
+*.swp
+*~
+.vscode/
+.idea/
