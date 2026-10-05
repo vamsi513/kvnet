@@ -1,15 +1,20 @@
 CXX      ?= g++
+CC       ?= gcc
 CXXFLAGS ?= -std=c++17 -O2 -Wall -Wextra -Wpedantic
+CFLAGS   ?= -std=c11 -O2 -Wall -Wextra -Wpedantic
 BUILD    := build
 
 .PHONY: all test clean sanitize
-all: $(BUILD)/kvnet-server
+all: $(BUILD)/kvnet-server $(BUILD)/kvbench
 
 $(BUILD):
 	mkdir -p $(BUILD)
 
 $(BUILD)/kvnet-server: src/server.cpp src/protocol.cpp src/poller.cpp src/protocol.hpp src/poller.hpp | $(BUILD)
 	$(CXX) $(CXXFLAGS) -o $@ src/server.cpp src/protocol.cpp src/poller.cpp
+
+$(BUILD)/kvbench: bench/kvbench.c | $(BUILD)
+	$(CC) $(CFLAGS) -o $@ bench/kvbench.c -lpthread
 
 $(BUILD)/test_protocol: tests/test_protocol.cpp src/protocol.cpp src/protocol.hpp | $(BUILD)
 	$(CXX) $(CXXFLAGS) -o $@ tests/test_protocol.cpp src/protocol.cpp
