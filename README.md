@@ -1,5 +1,7 @@
 # kvnet
 
+[![ci](https://github.com/vamsi513/kvnet/actions/workflows/ci.yml/badge.svg)](https://github.com/vamsi513/kvnet/actions/workflows/ci.yml)
+
 A small in-memory key-value server over TCP, written in C++17 with a
 non-blocking event loop, plus a load generator written in C. I built it to
 practice network programming: non-blocking sockets, event loops, and framing a
