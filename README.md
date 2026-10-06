@@ -112,3 +112,7 @@ any other server, and they will differ on other hardware.
 
 Edge-triggered readiness, a worker thread pool with sharded stores, a binary
 protocol with length prefixes, and write-ahead logging for persistence.
+
+## License
+
+MIT. See LICENSE.
